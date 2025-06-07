@@ -24,6 +24,9 @@ public:
 
 
 // better approach O(n) and O(n)
+// is question me hum apni string ko concatenate karenge
+// then first and last char ko chhodkar concatenated str me apni original string ko dhundhenge
+// if found then return true else false
 class Solution {
 public:
     bool repeatedSubstringPattern(string s) {
