@@ -31,6 +31,8 @@ class Solution {
 public:
     bool repeatedSubstringPattern(string s) {
         string concatenated = s + s;
+        // in the inbuilt funciton we are passing the indexes from where to where to find the string s
+        // so we are gonna find from 1 till n-2
         return concatenated.substr(1, concatenated.length() - 2).find(s) != string::npos;
     }
 };
