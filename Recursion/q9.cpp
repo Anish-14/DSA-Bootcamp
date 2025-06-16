@@ -14,10 +14,13 @@ class Solution {
         combination(i + 1, target - candidates[i], candidates, ans, comb);
         ans.pop_back();
 
-        // exclusion
+        // this statement is necessary because you just included the duplicate value above but it didn't gave you any answer
+        // so you've to go past every duplicate value in the array
         int j = i + 1;
         while (j < candidates.size() && candidates[j] == candidates[i]) j++;
 
+
+        // exclusion
         combination(j, target, candidates, ans, comb);
     }
 
