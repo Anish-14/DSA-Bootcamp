@@ -1,35 +1,32 @@
 // https://leetcode.com/problems/combination-sum-ii/
 
 class Solution {
-public:
-    void print(vector<int> &temp){
-        for(int i = 0; i<temp.size(); i++){
-            cout<<temp[i]<<" ";
-        }cout<<endl;
-    }
-    void solve(vector<int>& candidates, vector<vector<int>>& ans, vector<int>& temp,
-               int target, int idx) {
+    void combination(int i, int target, vector<int>& candidates, vector<int>& ans, vector<vector<int>>& comb) {
         if (target == 0) {
-            print(temp);
-            ans.push_back(temp);
+            comb.push_back(ans);
             return;
         }
 
-        for (int i = idx; i < candidates.size(); i++) {
-            if (i > idx && candidates[i] == candidates[i - 1]) continue; // skip duplicates, as they're covered in the recursive calls
-            if (candidates[i] > target) break; // pruning
+        if (i >= candidates.size() || target < 0) return;
 
-            temp.push_back(candidates[i]);
-            solve(candidates, ans, temp, target - candidates[i], i + 1);
-            temp.pop_back();
-        }
+        // inclusion
+        ans.push_back(candidates[i]);
+        combination(i + 1, target - candidates[i], candidates, ans, comb);
+        ans.pop_back();
+
+        // exclude the current one and go for every possible solution
+        int j = i + 1;
+        while (j < candidates.size() && candidates[j] == candidates[i]) j++;
+
+        combination(j, target, candidates, ans, comb);
     }
 
+public:
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         sort(candidates.begin(), candidates.end());
-        vector<vector<int>> ans;
-        vector<int> temp;
-        solve(candidates, ans, temp, target, 0);
-        return ans;
+        vector<int> ans;
+        vector<vector<int>> comb;
+        combination(0, target, candidates, ans, comb);
+        return comb;
     }
 };
