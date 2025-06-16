@@ -19,8 +19,10 @@ public:
             ans.insert(temp);
         }
 
-        
+         // this statement is unnecessary, see the optimised code for better understanding
+        // there should be only two calls
         // include and don't go forward, as we can include duplicate answers
+       
         sum += candidates[idx];
         temp.push_back(candidates[idx]);
         // print(temp);
@@ -52,3 +54,35 @@ public:
         return res;
     }
 };
+
+
+
+// the best solution
+class Solution {
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<int>> result;
+        vector<int> current;
+        backtrack(candidates, target, 0, current, result);
+        return result;
+    }
+
+private:
+    void backtrack(vector<int>& candidates, int target, int index,
+                   vector<int>& current, vector<vector<int>>& result) {
+        if (target == 0) {
+            result.push_back(current);
+            return;
+        }
+        if (target < 0 || index >= candidates.size()) return;
+
+        // Include the current number (can use again)
+        current.push_back(candidates[index]);
+        backtrack(candidates, target - candidates[index], index, current, result);
+        current.pop_back();
+
+        // Skip to next number
+        backtrack(candidates, target, index + 1, current, result);
+    }
+};
+
