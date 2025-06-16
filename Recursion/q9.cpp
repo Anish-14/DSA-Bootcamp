@@ -14,7 +14,7 @@ class Solution {
         combination(i + 1, target - candidates[i], candidates, ans, comb);
         ans.pop_back();
 
-        // exclude the current one and go for every possible solution
+        // exclusion
         int j = i + 1;
         while (j < candidates.size() && candidates[j] == candidates[i]) j++;
 
