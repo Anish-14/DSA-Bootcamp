@@ -1,5 +1,8 @@
 // https://leetcode.com/problems/ransom-note/description/
 
+
+// obviously without map this would become an optimal method by using a vector of 26 lengtho storing the char's freq
+// but this was a hashmap's questionare so I wanted to solve it using hashmap
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
