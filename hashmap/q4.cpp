@@ -52,7 +52,6 @@ public:
         for (auto &x: m)
         {
             int ele=x.first;
-            if(x.second==0)continue;
             int sum=1;
             int y=ele;
             while(1)
@@ -78,7 +77,6 @@ public:
                     m.erase(it);
                 }
             }
-            m[ele]=0;
 
             ans=max(ans,sum);
             
