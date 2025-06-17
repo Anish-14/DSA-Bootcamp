@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/number-of-segments-in-a-string/?envType=problem-list-v2&envId=string
 // number of segments in string
+// hi I am anish
 
 class Solution {
 public:

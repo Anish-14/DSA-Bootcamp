@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/repeated-substring-pattern/description/?envType=problem-list-v2&envId=string
 // repeated substring pattern
-
+// writing this line to learn github, please ignore this line
 // O(n^2) && O(1)
 
 class Solution {
