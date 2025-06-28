@@ -1,6 +1,6 @@
 // https://leetcode.com/problems/4sum/
 
-
+// in this we're not allowed to store same vectors in our answer
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
