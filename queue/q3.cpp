@@ -22,3 +22,30 @@ public:
         return q.size() ;  
     }
 };
+
+
+
+// we can use vector also but memory wise it is not that effective because we are wasting the memory as we are just increasing the index
+// but in queue we are deleting the unnecessary starting entries.
+class RecentCounter {
+private:
+    vector<int> request;
+    int start = 0;
+public:
+    RecentCounter() {
+        
+    }
+    
+    int ping(int t) {
+        request.push_back(t);
+        pair<int,int> range = make_pair(t-3000, t);
+
+
+        while(request[start] < range.first){
+            start++;
+        }
+       
+        return request.size() - start;
+    }
+};
+
