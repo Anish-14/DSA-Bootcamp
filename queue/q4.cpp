@@ -12,6 +12,8 @@ public:
         for (int sandwich : sandwiches) {
             if (counts[sandwich] == 0)
                 break;
+            // actually we don't need this condition as the number of sandwiches is equal to the number of students, so it will become zero only when all the sandwiches 
+            // distributed
             if (remaining == 0)
                 break;
             counts[sandwich]--;
