@@ -46,3 +46,47 @@ public:
         return res;
     }
 };
+
+
+
+// this is better solution than the above, but the two stack approach is also quite good
+class Solution {
+public:
+    string decodeString(string s) {
+       int n = s.size();
+       string ans = "";
+       for(int i=0;i<n;i++){
+        if(isdigit(s[i])){
+            int num = 0;
+            while(s[i]!='['){
+                int x = s[i]-'0';
+                num*=10;
+                num+=x;
+                i++;
+            }
+            string pass = "";
+            i++;
+            int count = 1;
+            while(count!=0){
+                if(s[i]=='['){
+                    count++; 
+                } else if(s[i]==']'){
+                    count--;
+                }
+                if(count==0){
+                    break;
+                }
+                pass+=s[i];
+                i++;
+            }
+            string temp = decodeString(pass);
+            for(int j=0;j<num;j++){
+                ans+=temp;
+            }
+        } else {
+            ans+=s[i];
+        }
+       }
+       return ans; 
+    }
+};
