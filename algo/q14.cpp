@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/minimum-number-of-k-consecutive-bit-flips/
 
+// dry run it, you will understand the solution
 class Solution
 {
 public:
