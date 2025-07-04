@@ -31,3 +31,29 @@ public:
         return total;
     }
 };
+
+
+// another method for it 
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int left = 0, right = height.size() - 1;
+        int leftmax = 0, rightmax = 0;
+        int total = 0;
+
+        while(left < right){
+            if(height[left] < height[right]){
+                leftmax = max(leftmax, height[left]);
+                total += (leftmax - height[left]);
+                left++;
+            }
+            else{
+                rightmax = max(rightmax, height[right]);
+                total += (rightmax - height[right]);
+                right--;
+            }
+        }
+        return total;
+    }
+};
