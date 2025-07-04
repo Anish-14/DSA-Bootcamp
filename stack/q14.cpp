@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/maximal-rectangle/description/
 
 
+// this uses the same concept as the previous question, for the area fun.
+// we just have to make the presum matrix and we are good to go
 class Solution {
 public:
 int area(vector<int>& heights) {
@@ -32,9 +34,10 @@ int area(vector<int>& heights) {
         }
         return maxi;
     }
+
     int maximalRectangle(vector<vector<char>>& matrix) {
-        int n=matrix.size();
-        int m=matrix[0].size();
+        int n = matrix.size();
+        int m = matrix[0].size();
         int maxi=0;
         vector<vector<int>>ans(n,vector<int>(m));
         for(int i=0;i<m;i++)
@@ -49,8 +52,7 @@ int area(vector<int>& heights) {
                 }
                 else
                 {
-                    presum+=matrix[j][i];
-                    presum=presum-'0';
+                    presum += (matrix[j][i] - '0');
                     ans[j][i]=presum;
                 }
             }
