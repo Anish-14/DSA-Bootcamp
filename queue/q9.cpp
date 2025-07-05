@@ -3,6 +3,7 @@
 class Solution {
 public:
     vector<int> deckRevealedIncreasing(vector<int>& deck) {
+        // sorted in descending order
         sort(deck.rbegin(), deck.rend());
         deque<int> d;
         d.push_back(deck[0]);
